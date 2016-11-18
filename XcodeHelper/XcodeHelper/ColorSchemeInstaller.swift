@@ -98,9 +98,7 @@ class ColorSchemeInstaller: PackageInstaller
     }
     
     func cerateDownloadedColorsDirectoryIfNeeded() {
-        var path = NSHomeDirectory()
-        path.appendPathComponent("Library/Application Support/XcodeHelper")
-        path.appendPathComponent(self.downloadRelativePath())
+        let path = self.pathForDownloadPackageDirectory()
         
         if FileManager.default.fileExists(atPath: path) == false {
             try? FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: true, attributes: nil)
