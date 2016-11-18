@@ -88,11 +88,11 @@ class PackageInstaller: NSObject {
         }
     }
 
-    func pathForDownloadedPackage(package: Package?) -> String {
+    func pathForDownloadedPackage(package: Package) -> String {
         var path = NSHomeDirectory()
         path.appendPathComponent("Library/Application Support/XcodeHelper")
         path.appendPathComponent(self.downloadRelativePath())
-        if let name = package?.name {
+        if let name = package.name {
             path.appendPathComponent(name)
         } else {
             // TODO:
