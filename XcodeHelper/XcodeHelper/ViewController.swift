@@ -7,8 +7,9 @@
 //
 
 import Cocoa
+import Sparkle
 
-class ViewController: NSViewController {
+class ViewController: NSViewController, SUUpdaterDelegate {
 
     @IBOutlet private var textView: NSTextView?
     var pluginWC = PluginWindowController(windowNibName: "PluginWindowController")
@@ -16,6 +17,8 @@ class ViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        SUUpdater.shared().checkForUpdatesInBackground()
 
         // Do any additional setup after loading the view.
         self.textView?.isEditable = false
