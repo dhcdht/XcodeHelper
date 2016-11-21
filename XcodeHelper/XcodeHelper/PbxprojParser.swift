@@ -15,9 +15,17 @@ class PbxprojParser: NSObject {
         }
 
         do {
+            let pbxproj = try String(contentsOfFile: path, encoding: .utf8)
             let regex = try NSRegularExpression(pattern: "(\\w[\\w\\s\\.-]*\\w\\.(xc|ide)plugin\\s)", options: [.anchorsMatchLines])
-            let result = regex.firstMatch(in: path, options: [], range: NSRange(location: 0, length: path.lengthOfBytes(using: path.smallestEncoding)))
-            return result?.alternativeStrings?.first?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+            let result = regex.firstMatch(in: pbxproj, options: [], range: NSRange(location: 0, length: pbxproj.lengthOfBytes(using: pbxproj.smallestEncoding)))
+            if let resultRange = result?.rangeAt(0) {
+                var subString = (pbxproj as NSString).substring(with: resultRange)
+                subString = subString.trimmingCharacters(in: .whitespacesAndNewlines)
+
+                return subString
+            } else {
+                return nil
+            }
         } catch {
             return nil
         }

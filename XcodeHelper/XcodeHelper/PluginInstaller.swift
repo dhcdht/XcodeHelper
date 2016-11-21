@@ -39,15 +39,12 @@ class PluginInstaller: PackageInstaller {
                 // TODO:
             }
         }
-        if let extensionName = package.extensionName {
-            var pluginsInstallPath = self.pathForPluginsWithExtension(extensionName: extensionName)
-            pluginsInstallPath.appendPathComponent(installName)
 
-            return pluginsInstallPath
-        } else {
-            // TODO:
-            return nil
-        }
+        let extensionName = installName.pathExtension
+        var pluginsInstallPath = self.pathForPluginsWithExtension(extensionName: extensionName)
+        pluginsInstallPath.appendPathComponent(installName)
+
+        return pluginsInstallPath
     }
 
     override func installPackage(package: Package, completion: @escaping InstallOrUpdateCompletionBlock) {
@@ -76,7 +73,8 @@ class PluginInstaller: PackageInstaller {
     // MARK: - Private
 
     private func pbxprojInstallNameForPlugin(package: Package) -> String? {
-        let pbxprojPath = self.findXcodeprojPathForPackage(package: package)
+        var pbxprojPath = self.findXcodeprojPathForPackage(package: package)
+        pbxprojPath?.appendPathComponent("project.pbxproj")
         let ret = PbxprojParser.xcpluginNameFromPbxproj(path: pbxprojPath)
 
         return ret
