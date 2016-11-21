@@ -11,6 +11,7 @@
 		3A5294661DDD59220059E6A2 /* ColorSchemeInstaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5294651DDD59220059E6A2 /* ColorSchemeInstaller.swift */; };
 		3C14B3641DD1F73A0063372D /* FillableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C14B3631DD1F73A0063372D /* FillableButton.swift */; };
 		3C14B3671DD201460063372D /* FillableButtonStyleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C14B3661DD201460063372D /* FillableButtonStyleHelper.swift */; };
+		3C23B7251DE32430006F99C8 /* AutoUpdateDVTPluginCompatibilityUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C23B7241DE32430006F99C8 /* AutoUpdateDVTPluginCompatibilityUUID.swift */; };
 		3C478C881DDB1CF8000E0686 /* Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C478C871DDB1CF8000E0686 /* Template.swift */; };
 		3C478C8A1DDB1E51000E0686 /* TemplateInstaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C478C891DDB1E51000E0686 /* TemplateInstaller.swift */; };
 		3C478C8E1DDB2FB5000E0686 /* FileTemplateInstaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C478C8D1DDB2FB5000E0686 /* FileTemplateInstaller.swift */; };
@@ -54,6 +55,7 @@
 		3A5294651DDD59220059E6A2 /* ColorSchemeInstaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSchemeInstaller.swift; sourceTree = "<group>"; };
 		3C14B3631DD1F73A0063372D /* FillableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillableButton.swift; sourceTree = "<group>"; };
 		3C14B3661DD201460063372D /* FillableButtonStyleHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillableButtonStyleHelper.swift; sourceTree = "<group>"; };
+		3C23B7241DE32430006F99C8 /* AutoUpdateDVTPluginCompatibilityUUID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoUpdateDVTPluginCompatibilityUUID.swift; sourceTree = "<group>"; };
 		3C478C871DDB1CF8000E0686 /* Template.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Template.swift; sourceTree = "<group>"; };
 		3C478C891DDB1E51000E0686 /* TemplateInstaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplateInstaller.swift; sourceTree = "<group>"; };
 		3C478C8D1DDB2FB5000E0686 /* FileTemplateInstaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileTemplateInstaller.swift; sourceTree = "<group>"; };
@@ -127,6 +129,14 @@
 				3C14B3661DD201460063372D /* FillableButtonStyleHelper.swift */,
 			);
 			name = Helper;
+			sourceTree = "<group>";
+		};
+		3C23B7231DE32405006F99C8 /* UpdatePlugins */ = {
+			isa = PBXGroup;
+			children = (
+				3C23B7241DE32430006F99C8 /* AutoUpdateDVTPluginCompatibilityUUID.swift */,
+			);
+			name = UpdatePlugins;
 			sourceTree = "<group>";
 		};
 		3C73A2041DB9047400AD7754 /* Helper */ = {
@@ -234,6 +244,7 @@
 		3CF2FAAF1DB67B8000ABEF83 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				3C23B7231DE32405006F99C8 /* UpdatePlugins */,
 				3CF837E91DBF830E00922C30 /* UnsignXcode */,
 				3CF2FAB01DB67B8700ABEF83 /* Plugin */,
 			);
@@ -504,6 +515,7 @@
 				3C14B3641DD1F73A0063372D /* FillableButton.swift in Sources */,
 				3C73A2081DB90F2800AD7754 /* PreviewImageButton.swift in Sources */,
 				3CF8380D1DBF89AE00922C30 /* unsign.m in Sources */,
+				3C23B7251DE32430006F99C8 /* AutoUpdateDVTPluginCompatibilityUUID.swift in Sources */,
 				3C478C901DDB306A000E0686 /* ProjectTemplateInstaller.swift in Sources */,
 				3CF2FA8D1DB63DD800ABEF83 /* AppDelegate.swift in Sources */,
 				3C478C921DDB3205000E0686 /* FileTemplate.swift in Sources */,
