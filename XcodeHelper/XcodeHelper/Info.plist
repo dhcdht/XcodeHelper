@@ -29,6 +29,6 @@
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>SUFeedURL</key>
-	<string>https://gist.githubusercontent.com/dhcdht/41a1c484f3c1b6dae0a0224b52b5437d/raw/XcodeHelperReleases.xml</string>
+	<string>https://raw.githubusercontent.com/dhcdht/XcodeHelper/master/updateReleases.xml</string>
 </dict>
 </plist>
