@@ -223,6 +223,9 @@ class PluginWindowController: NSWindowController, NSTableViewDataSource, NSTable
         }, completion: { (error) in
             FillableButtonStyleHelper.updateButton(button: updateControl, forPackage: package, animated: true)
 
+            // TODO: 暂时放到这里，自动升级安装的插件，以免有插件因为版本问题用不了
+            AutoUpdateDVTPlugInCompatibilityUUID.shared.startChecking()
+
             if let error = error {
                 self.presentError(error)
             } else if package.requiresRestart {
