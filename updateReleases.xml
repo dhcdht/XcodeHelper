@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="0.2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"  xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>XcodeHelper App Changelog</title>
+    <link>https://gist.githubusercontent.com/dhcdht/41a1c484f3c1b6dae0a0224b52b5437d/raw/XcodeHelperReleases.xml</link>
+    <description>Most recent changes with links to updates.</description>
+    <language>en</language>
+      <item>
+        <title>Version 0.2.0</title>
+        <description>
+          <![CDATA[
+            <h4>v0.2.0</h4>
+            <ul>
+              <li>添加了自动升级插件 UUID 功能</li>
+              <li>修复了针对 ideplugin 类型的插件安装不成功的问题</li>
+            </ul>
+            <h4>第一版的 app，v0.1.0 包含功能</h4>
+            <ul>
+              <li>破解 Xcode</li>
+              <li>插件的安装、卸载等管理</li>
+              <li>自动检查升级</li>
+            </ul>
+          ]]>
+        </description>
+        <pubDate>Sat, 26 Jul 2016 15:20:11 +0000</pubDate>
+        <enclosure url="https://github.com/dhcdht/XcodeHelper/releases/download/v0.2.0/XcodeHelper.app.zip" sparkle:version="2" sparkle:shortVersionString="0.2.0" length="107758" type="application/octet-stream"/>
+      </item>
+  </channel>
+</rss>
