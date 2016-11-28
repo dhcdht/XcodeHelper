@@ -25,6 +25,7 @@
 		3C73C0C41DC22CE100D52CD1 /* PackageInstaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C73C0C31DC22CE100D52CD1 /* PackageInstaller.swift */; };
 		3C73C0C71DC2408C00D52CD1 /* PluginInstaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C73C0C61DC2408C00D52CD1 /* PluginInstaller.swift */; };
 		3CB662261DB7A92A005E645F /* Plugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB662251DB7A92A005E645F /* Plugin.swift */; };
+		3CBB15291DEC779C000DB120 /* DependencyVisualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBB15281DEC779C000DB120 /* DependencyVisualizer.swift */; };
 		3CE29E841DC8C48C0092D59B /* String+URLPathOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE29E831DC8C48C0092D59B /* String+URLPathOperations.swift */; };
 		3CE29E861DC8CD170092D59B /* PbxprojParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE29E851DC8CD170092D59B /* PbxprojParser.swift */; };
 		3CE29E881DC8D18C0092D59B /* Shell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE29E871DC8D18C0092D59B /* Shell.swift */; };
@@ -70,6 +71,7 @@
 		3C73C0C31DC22CE100D52CD1 /* PackageInstaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackageInstaller.swift; sourceTree = "<group>"; };
 		3C73C0C61DC2408C00D52CD1 /* PluginInstaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PluginInstaller.swift; sourceTree = "<group>"; };
 		3CB662251DB7A92A005E645F /* Plugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plugin.swift; sourceTree = "<group>"; };
+		3CBB15281DEC779C000DB120 /* DependencyVisualizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyVisualizer.swift; sourceTree = "<group>"; };
 		3CE29E831DC8C48C0092D59B /* String+URLPathOperations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+URLPathOperations.swift"; sourceTree = "<group>"; };
 		3CE29E851DC8CD170092D59B /* PbxprojParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PbxprojParser.swift; sourceTree = "<group>"; };
 		3CE29E871DC8D18C0092D59B /* Shell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shell.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				3C044B851DEC688D001CDD38 /* Resources */,
+				3CBB15281DEC779C000DB120 /* DependencyVisualizer.swift */,
 			);
 			name = DependencyVisualizer;
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 				3C14B3641DD1F73A0063372D /* FillableButton.swift in Sources */,
 				3C73A2081DB90F2800AD7754 /* PreviewImageButton.swift in Sources */,
 				3CF8380D1DBF89AE00922C30 /* unsign.m in Sources */,
+				3CBB15291DEC779C000DB120 /* DependencyVisualizer.swift in Sources */,
 				3C23B7251DE32430006F99C8 /* AutoUpdateDVTPluginCompatibilityUUID.swift in Sources */,
 				3C478C901DDB306A000E0686 /* ProjectTemplateInstaller.swift in Sources */,
 				3CF2FA8D1DB63DD800ABEF83 /* AppDelegate.swift in Sources */,
