@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		186FA3FFAC381D17345A9F91 /* Pods_XcodeHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD119FF67DD96454B938C8E4 /* Pods_XcodeHelper.framework */; };
 		3A5294661DDD59220059E6A2 /* ColorSchemeInstaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5294651DDD59220059E6A2 /* ColorSchemeInstaller.swift */; };
+		3C044B841DEC6887001CDD38 /* objc-dependency-visualizer in Resources */ = {isa = PBXBuildFile; fileRef = 3C044B831DEC6887001CDD38 /* objc-dependency-visualizer */; };
 		3C14B3641DD1F73A0063372D /* FillableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C14B3631DD1F73A0063372D /* FillableButton.swift */; };
 		3C14B3671DD201460063372D /* FillableButtonStyleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C14B3661DD201460063372D /* FillableButtonStyleHelper.swift */; };
 		3C23B7251DE32430006F99C8 /* AutoUpdateDVTPluginCompatibilityUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C23B7241DE32430006F99C8 /* AutoUpdateDVTPluginCompatibilityUUID.swift */; };
@@ -53,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		3A5294651DDD59220059E6A2 /* ColorSchemeInstaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSchemeInstaller.swift; sourceTree = "<group>"; };
+		3C044B831DEC6887001CDD38 /* objc-dependency-visualizer */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "objc-dependency-visualizer"; path = "Deps/objc-dependency-visualizer"; sourceTree = SOURCE_ROOT; };
 		3C14B3631DD1F73A0063372D /* FillableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillableButton.swift; sourceTree = "<group>"; };
 		3C14B3661DD201460063372D /* FillableButtonStyleHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillableButtonStyleHelper.swift; sourceTree = "<group>"; };
 		3C23B7241DE32430006F99C8 /* AutoUpdateDVTPluginCompatibilityUUID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoUpdateDVTPluginCompatibilityUUID.swift; sourceTree = "<group>"; };
@@ -121,6 +123,22 @@
 				CD119FF67DD96454B938C8E4 /* Pods_XcodeHelper.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3C044B821DEC6865001CDD38 /* DependencyVisualizer */ = {
+			isa = PBXGroup;
+			children = (
+				3C044B851DEC688D001CDD38 /* Resources */,
+			);
+			name = DependencyVisualizer;
+			sourceTree = "<group>";
+		};
+		3C044B851DEC688D001CDD38 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3C044B831DEC6887001CDD38 /* objc-dependency-visualizer */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		3C14B3651DD2010B0063372D /* Helper */ = {
@@ -244,6 +262,7 @@
 		3CF2FAAF1DB67B8000ABEF83 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				3C044B821DEC6865001CDD38 /* DependencyVisualizer */,
 				3C23B7231DE32405006F99C8 /* UpdatePlugins */,
 				3CF837E91DBF830E00922C30 /* UnsignXcode */,
 				3CF2FAB01DB67B8700ABEF83 /* Plugin */,
@@ -428,6 +447,7 @@
 				3CF2FAAE1DB6713300ABEF83 /* PluginTableCellView.xib in Resources */,
 				3CF2FA911DB63DD800ABEF83 /* Assets.xcassets in Resources */,
 				3CF2FA941DB63DD800ABEF83 /* Main.storyboard in Resources */,
+				3C044B841DEC6887001CDD38 /* objc-dependency-visualizer in Resources */,
 				3CF838061DBF887400922C30 /* UnsignWindowController.xib in Resources */,
 				3CF2FAA01DB63EA900ABEF83 /* PluginWindowController.xib in Resources */,
 			);
