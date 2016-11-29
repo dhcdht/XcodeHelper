@@ -733,10 +733,7 @@
                                 </scroller>
                             </scrollView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ML9-Ju-ozj">
-                                <rect key="frame" x="347" y="39" width="119" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="107" id="JSb-j4-2lz"/>
-                                </constraints>
+                                <rect key="frame" x="191" y="39" width="119" height="32"/>
                                 <buttonCell key="cell" type="push" title="Plugins" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="22v-hy-P5x">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -745,14 +742,26 @@
                                     <action selector="pluginButtonTappedWithSender:" target="XfG-lQ-9wD" id="b59-NR-cQC"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Il-2s-3IR" userLabel="DependencyVisualizer">
+                                <rect key="frame" x="310" y="39" width="176" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="DependencyVisiualizer" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aj7-bN-rDb" userLabel="DependencyVisualizer">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="dependencyVisualizerButtonTappedWithSender:" target="XfG-lQ-9wD" id="E0p-Ou-dgn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="ML9-Ju-ozj" firstAttribute="leading" secondItem="yi5-M3-9yK" secondAttribute="trailing" constant="27" id="4bP-PH-NAU"/>
                             <constraint firstItem="jQ0-qg-gV1" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="6Vo-Da-EUI"/>
                             <constraint firstAttribute="trailing" secondItem="jQ0-qg-gV1" secondAttribute="trailing" constant="20" id="Ds0-Dx-HGh"/>
                             <constraint firstItem="yi5-M3-9yK" firstAttribute="top" secondItem="jQ0-qg-gV1" secondAttribute="bottom" constant="30" id="Glm-AD-sMT"/>
-                            <constraint firstItem="ML9-Ju-ozj" firstAttribute="top" secondItem="jQ0-qg-gV1" secondAttribute="bottom" constant="30" id="Sqw-4P-HwY"/>
+                            <constraint firstItem="ML9-Ju-ozj" firstAttribute="baseline" secondItem="yi5-M3-9yK" secondAttribute="baseline" id="Udf-20-c0r"/>
                             <constraint firstAttribute="bottom" secondItem="yi5-M3-9yK" secondAttribute="bottom" constant="46" id="Wzg-Dm-7u2"/>
-                            <constraint firstAttribute="trailing" secondItem="ML9-Ju-ozj" secondAttribute="trailing" constant="40" id="bdb-Q3-wqv"/>
+                            <constraint firstItem="ML9-Ju-ozj" firstAttribute="centerX" secondItem="jQ0-qg-gV1" secondAttribute="centerX" id="bZQ-sq-8hi"/>
                             <constraint firstItem="yi5-M3-9yK" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="40" id="gBD-rE-iQ5"/>
                             <constraint firstItem="jQ0-qg-gV1" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="vPn-zK-hwZ"/>
                         </constraints>

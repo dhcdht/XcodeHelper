@@ -14,6 +14,7 @@ class ViewController: NSViewController, SUUpdaterDelegate {
     @IBOutlet private var textView: NSTextView?
     var pluginWC = PluginWindowController(windowNibName: "PluginWindowController")
     var unsignXcodeWC = UnsignWindowController(windowNibName: "UnsignWindowController")
+    var dependencyVisualizerWC = DependencyVisualizerWindowController(windowNibName: "DependencyVisualizerWindowController")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +29,13 @@ class ViewController: NSViewController, SUUpdaterDelegate {
         // TODO: 暂时放到这里，自动升级安装的插件，以免有插件因为版本问题用不了
         AutoUpdateDVTPlugInCompatibilityUUID.shared.startChecking()
 
-        // TODO：实验测试生成类图的代码
-        let workingPath = NSHomeDirectory().stringByAppendPathComponent("test")
-        DependencyVisualizer.copyDependencyResources(toPath: workingPath, completion: { (output, error) in
-            DependencyVisualizer.generatDependencyJSFile(projectName: "XcodeHelper", projectType: .Swift, outputPath: workingPath.stringByAppendPathComponent("objc-dependency-visualizer/origin.js"), completion: { (output, error) in
-            })
-        })
+//        // TODO：实验测试生成类图的代码
+//        let workingPath = NSHomeDirectory().stringByAppendPathComponent("test")
+//        DependencyVisualizer.copyDependencyResources(toPath: workingPath, completion: { (output, error) in
+//            DependencyVisualizer.generatDependencyJSFile(projectName: "XcodeHelper", projectType: .Swift, outputPath: workingPath.stringByAppendPathComponent("objc-dependency-visualizer/origin.js"), completion: { (output, error) in
+////                NSWorkspace.shared().openFile(workingPath.stringByAppendPathComponent("objc-dependency-visualizer/index.html"))
+//            })
+//        })
     }
 
     @IBAction func pluginButtonTapped(sender: AnyObject) -> Void {
@@ -42,6 +44,10 @@ class ViewController: NSViewController, SUUpdaterDelegate {
 
     @IBAction func unsignXcodeButtonTapped(sender: AnyObject) -> Void {
         self.unsignXcodeWC.window?.orderFront(nil)
+    }
+
+    @IBAction func dependencyVisualizerButtonTapped(sender: AnyObject) -> Void {
+        self.dependencyVisualizerWC.window?.orderFront(nil)
     }
 }
 

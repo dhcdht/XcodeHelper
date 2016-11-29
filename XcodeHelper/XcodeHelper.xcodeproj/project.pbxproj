@@ -13,6 +13,8 @@
 		3C14B3641DD1F73A0063372D /* FillableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C14B3631DD1F73A0063372D /* FillableButton.swift */; };
 		3C14B3671DD201460063372D /* FillableButtonStyleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C14B3661DD201460063372D /* FillableButtonStyleHelper.swift */; };
 		3C23B7251DE32430006F99C8 /* AutoUpdateDVTPluginCompatibilityUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C23B7241DE32430006F99C8 /* AutoUpdateDVTPluginCompatibilityUUID.swift */; };
+		3C35A0BC1DEDDB23001856B4 /* DependencyVisualizerWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C35A0BA1DEDDB23001856B4 /* DependencyVisualizerWindowController.swift */; };
+		3C35A0BD1DEDDB23001856B4 /* DependencyVisualizerWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C35A0BB1DEDDB23001856B4 /* DependencyVisualizerWindowController.xib */; };
 		3C478C881DDB1CF8000E0686 /* Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C478C871DDB1CF8000E0686 /* Template.swift */; };
 		3C478C8A1DDB1E51000E0686 /* TemplateInstaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C478C891DDB1E51000E0686 /* TemplateInstaller.swift */; };
 		3C478C8E1DDB2FB5000E0686 /* FileTemplateInstaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C478C8D1DDB2FB5000E0686 /* FileTemplateInstaller.swift */; };
@@ -59,6 +61,8 @@
 		3C14B3631DD1F73A0063372D /* FillableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillableButton.swift; sourceTree = "<group>"; };
 		3C14B3661DD201460063372D /* FillableButtonStyleHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillableButtonStyleHelper.swift; sourceTree = "<group>"; };
 		3C23B7241DE32430006F99C8 /* AutoUpdateDVTPluginCompatibilityUUID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoUpdateDVTPluginCompatibilityUUID.swift; sourceTree = "<group>"; };
+		3C35A0BA1DEDDB23001856B4 /* DependencyVisualizerWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyVisualizerWindowController.swift; sourceTree = "<group>"; };
+		3C35A0BB1DEDDB23001856B4 /* DependencyVisualizerWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DependencyVisualizerWindowController.xib; sourceTree = "<group>"; };
 		3C478C871DDB1CF8000E0686 /* Template.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Template.swift; sourceTree = "<group>"; };
 		3C478C891DDB1E51000E0686 /* TemplateInstaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplateInstaller.swift; sourceTree = "<group>"; };
 		3C478C8D1DDB2FB5000E0686 /* FileTemplateInstaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileTemplateInstaller.swift; sourceTree = "<group>"; };
@@ -160,6 +164,15 @@
 			name = UpdatePlugins;
 			sourceTree = "<group>";
 		};
+		3C35A0B91DEDDAD2001856B4 /* DependencyVisualizer */ = {
+			isa = PBXGroup;
+			children = (
+				3C35A0BA1DEDDB23001856B4 /* DependencyVisualizerWindowController.swift */,
+				3C35A0BB1DEDDB23001856B4 /* DependencyVisualizerWindowController.xib */,
+			);
+			name = DependencyVisualizer;
+			sourceTree = "<group>";
+		};
 		3C73A2041DB9047400AD7754 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +239,7 @@
 		3CF2FA9B1DB63E5800ABEF83 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				3C35A0B91DEDDAD2001856B4 /* DependencyVisualizer */,
 				3CF837EA1DBF833200922C30 /* UnsignXcode */,
 				3CF2FA9C1DB63E6300ABEF83 /* PluginWindow */,
 			);
@@ -453,6 +467,7 @@
 				3C044B841DEC6887001CDD38 /* objc-dependency-visualizer in Resources */,
 				3CF838061DBF887400922C30 /* UnsignWindowController.xib in Resources */,
 				3CF2FAA01DB63EA900ABEF83 /* PluginWindowController.xib in Resources */,
+				3C35A0BD1DEDDB23001856B4 /* DependencyVisualizerWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,6 +560,7 @@
 				3C478C921DDB3205000E0686 /* FileTemplate.swift in Sources */,
 				3CF838051DBF887400922C30 /* UnsignWindowController.swift in Sources */,
 				3C73A2031DB8FCAC00AD7754 /* ColorScheme.swift in Sources */,
+				3C35A0BC1DEDDB23001856B4 /* DependencyVisualizerWindowController.swift in Sources */,
 				3CF2FABA1DB67F9000ABEF83 /* PluginDownloader.swift in Sources */,
 				3CF837FE1DBF884A00922C30 /* XcodeCopier.swift in Sources */,
 				3A5294661DDD59220059E6A2 /* ColorSchemeInstaller.swift in Sources */,
