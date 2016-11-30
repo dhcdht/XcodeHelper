@@ -42,7 +42,13 @@ class DependencyVisualizerWindowController: NSWindowController {
                 if self.projectType == ProjectType.Swift {
                     type = DependencyVisualizer.ProjectType.Swift
                 }
-                DependencyVisualizer.generatDependencyJSFile(projectName: projectName, projectType: type, outputPath: outputPath.stringByAppendPathComponent("origin.js"), completion: { (output, error) in
+                var target: String?
+                if let targetName = self.targetNameField?.stringValue {
+                    if !targetName.isEmpty {
+                        target = targetName
+                    }
+                }
+                DependencyVisualizer.generatDependencyJSFile(projectName: projectName, targetName: target, projectType: type, outputPath: outputPath.stringByAppendPathComponent("origin.js"), completion: { (output, error) in
                     if let _ = error {
                         guard let window = self.window, let output = output else {
                             // TODO: error
@@ -69,5 +75,6 @@ class DependencyVisualizerWindowController: NSWindowController {
     private var projectType = ProjectType.ObjectiveC
 
     @IBOutlet private var projectNameField: NSTextField?
+    @IBOutlet private var targetNameField: NSTextField?
     @IBOutlet private var outputPathField: NSTextField?
 }
