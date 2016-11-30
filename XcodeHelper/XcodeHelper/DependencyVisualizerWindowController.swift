@@ -43,7 +43,17 @@ class DependencyVisualizerWindowController: NSWindowController {
                     type = DependencyVisualizer.ProjectType.Swift
                 }
                 DependencyVisualizer.generatDependencyJSFile(projectName: projectName, projectType: type, outputPath: outputPath.stringByAppendPathComponent("origin.js"), completion: { (output, error) in
-                    NSWorkspace.shared().openFile(outputPath.stringByAppendPathComponent("index.html"))
+                    if let _ = error {
+                        guard let window = self.window, let output = output else {
+                            // TODO: error
+                            return
+                        }
+                        let alert = NSAlert()
+                        alert.messageText = output
+                        alert.beginSheetModal(for: window, completionHandler: nil)
+                    } else {
+                        NSWorkspace.shared().openFile(outputPath.stringByAppendPathComponent("index.html"))
+                    }
                 })
             })
         }
