@@ -23,7 +23,7 @@ def find_project_output_directory(derived_data_paths, project_prefix, project_su
 
   if target_names != nil && target_names.length > 0
     filtered_by_target_paths = paths.find_all { |path| 
-       target_names.any? { |target| /#{target}[^\.]*\.build\/Objects-normal/.match path }
+       target_names.any? { |target| /#{project_prefix}.build[^\.]*#{target}[^\.]*\.build\/Objects-normal/.match path }
     }
     $stderr.puts "After target filtration there is #{filtered_by_target_paths.length} directories left"
     if paths.empty?
@@ -33,7 +33,7 @@ def find_project_output_directory(derived_data_paths, project_prefix, project_su
 
     paths_sorted_by_time = filtered_by_target_paths.sort_by { |f| File.ctime(f.chomp) }
     last_modified_dirs = target_names.map { |target|
-      filtered_by_target = filtered_by_target_paths.find_all { |path| /#{target}[^\.]*\.build\/Objects-normal/.match path }
+      filtered_by_target = filtered_by_target_paths.find_all { |path| /#{target}\.build\/Objects-normal/.match path }
       last_modified_dir = filtered_by_target.last.chomp
       $stderr.puts "Last modifications for #{target} were in\n#{last_modified_dir}\ndirectory at\n#{File.ctime(last_modified_dir)}"
       last_modified_dir
