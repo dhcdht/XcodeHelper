@@ -18,6 +18,12 @@ class DependencyVisualizerWindowController: NSWindowController {
 
     // MARK: - IBAction
 
+    @IBAction func projectTypeRadioButtonTapped(sender: NSButton) -> Void {
+        if let type = ProjectType(rawValue: sender.tag) {
+            self.projectType = type
+        }
+    }
+
     @IBAction func outputPathSelectButtonTapped(sender: AnyObject) -> Void {
         let openPanel = NSOpenPanel()
         openPanel.canChooseFiles = false
@@ -32,7 +38,11 @@ class DependencyVisualizerWindowController: NSWindowController {
     @IBAction func generateButtonTapped(sender: AnyObject) -> Void {
         if let projectName = self.projectNameField?.stringValue, let outputPath = self.outputPathField?.stringValue {
             DependencyVisualizer.copyDependencyResources(toPath: outputPath, completion: { (output, error) in
-                DependencyVisualizer.generatDependencyJSFile(projectName: projectName, projectType: .Swift, outputPath: outputPath.stringByAppendPathComponent("origin.js"), completion: { (output, error) in
+                var type = DependencyVisualizer.ProjectType.ObjectiveC
+                if self.projectType == ProjectType.Swift {
+                    type = DependencyVisualizer.ProjectType.Swift
+                }
+                DependencyVisualizer.generatDependencyJSFile(projectName: projectName, projectType: type, outputPath: outputPath.stringByAppendPathComponent("origin.js"), completion: { (output, error) in
                     NSWorkspace.shared().openFile(outputPath.stringByAppendPathComponent("index.html"))
                 })
             })
@@ -40,6 +50,13 @@ class DependencyVisualizerWindowController: NSWindowController {
     }
 
     // MARK: - Private
+
+    enum ProjectType : Int {
+        case ObjectiveC = 0
+        case Swift = 1
+    }
+
+    private var projectType = ProjectType.ObjectiveC
 
     @IBOutlet private var projectNameField: NSTextField?
     @IBOutlet private var outputPathField: NSTextField?
