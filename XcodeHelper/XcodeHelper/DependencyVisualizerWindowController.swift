@@ -15,5 +15,32 @@ class DependencyVisualizerWindowController: NSWindowController {
 
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
     }
-    
+
+    // MARK: - IBAction
+
+    @IBAction func outputPathSelectButtonTapped(sender: AnyObject) -> Void {
+        let openPanel = NSOpenPanel()
+        openPanel.canChooseFiles = false
+        openPanel.canChooseDirectories = true
+        if openPanel.runModal() == NSModalResponseOK {
+            if let url = openPanel.directoryURL {
+                self.outputPathField?.stringValue = url.path
+            }
+        }
+    }
+
+    @IBAction func generateButtonTapped(sender: AnyObject) -> Void {
+        if let projectName = self.projectNameField?.stringValue, let outputPath = self.outputPathField?.stringValue {
+            DependencyVisualizer.copyDependencyResources(toPath: outputPath, completion: { (output, error) in
+                DependencyVisualizer.generatDependencyJSFile(projectName: projectName, projectType: .Swift, outputPath: outputPath.stringByAppendPathComponent("origin.js"), completion: { (output, error) in
+                    NSWorkspace.shared().openFile(outputPath.stringByAppendPathComponent("index.html"))
+                })
+            })
+        }
+    }
+
+    // MARK: - Private
+
+    @IBOutlet private var projectNameField: NSTextField?
+    @IBOutlet private var outputPathField: NSTextField?
 }

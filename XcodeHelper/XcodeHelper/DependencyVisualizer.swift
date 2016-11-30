@@ -23,7 +23,7 @@ class DependencyVisualizer: NSObject {
             return
         }
 
-        let cpResourcesPath = resourcePath.stringByAppendPathComponent("objc-dependency-visualizer")
+        let cpResourcesPath = resourcePath.stringByAppendPathComponent("objc-dependency-visualizer/.")
         let shell = Shell()
         shell.executeCommand(command: "/bin/cp", arguments: ["-r", cpResourcesPath, toPath], completion: completion)
     }
