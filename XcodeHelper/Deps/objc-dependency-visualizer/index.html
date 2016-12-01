@@ -301,26 +301,39 @@
         var re = new RegExp(regexp, "i");
         svg.selectAll('circle, text')
                 .classed(classname, function (node) {
-                    var filtered = !node.name.match(re);
-                    filtered = invert ? !filtered : filtered;
-                    node.filtered = filtered;
-                    node.neighbours = !filtered;
-                    return filtered;
+                    node.filtered = true;
+                    node.neighbours = false;
+                    return node.filtered;
                 })
                 .transition();
 
         svg.selectAll('.link')
                 .classed(classname, function (l) {
-                    var filtered = !(l.sourceNode.name.match(re) && l.targetNode.name.match(re));
+                    var filtered = !(l.sourceNode.name.match(re) || l.targetNode.name.match(re));
                     filtered = invert ? !filtered : filtered;
+
+                    if (!filtered) {
+                        l.sourceNode.filtered = filtered;
+                        l.sourceNode.neighbours = !filtered;
+
+                        l.targetNode.filtered = filtered;
+                        l.targetNode.neighbours = !filtered;
+                    }
+
                     return filtered;
                 })
                 .attr("marker-end", function (l) {
-                    var filtered = !(l.sourceNode.name.match(re) && l.targetNode.name.match(re));
+                    var filtered = !(l.sourceNode.name.match(re) || l.targetNode.name.match(re));
                     filtered = invert ? !filtered : filtered;
                     return filtered ? "" : "url(#default)"
                 })
                 .transition()
+
+        svg.selectAll('circle, text')
+                .classed(classname, function (node) {
+                    return node.filtered;
+                })
+                .transition();
     }
 
 
