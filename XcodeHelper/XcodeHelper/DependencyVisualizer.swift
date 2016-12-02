@@ -43,4 +43,11 @@ class DependencyVisualizer: NSObject {
         }
         shell.executeCommand(command: "/bin/bash", arguments: arguments, workingDirectory: workingPath, completion: completion)
     }
+
+    class func filterDependencyJSFile(regex: String, outputPath: String, completion: @escaping Shell.ShellExecuteCommandCompletionBlock) -> Void {
+        let workingPath = outputPath
+        let shell = Shell()
+        let arguments = ["./dependency_filter.rb", "-r", regex]
+        shell.executeCommand(command: "/usr/bin/ruby", arguments: arguments, workingDirectory: workingPath, completion: completion)
+    }
 }

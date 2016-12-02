@@ -58,10 +58,35 @@ class DependencyVisualizerWindowController: NSWindowController {
                         alert.messageText = output
                         alert.beginSheetModal(for: window, completionHandler: nil)
                     } else {
-                        NSWorkspace.shared().openFile(outputPath.stringByAppendPathComponent("index.html"))
+                        let shell = Shell()
+                        shell.executeCommand(command: "/bin/cp", arguments: [outputPath.stringByAppendPathComponent("origin.js"), outputPath.stringByAppendPathComponent("origin.js.bak")], completion: { (output, error) in
+                            NSWorkspace.shared().openFile(outputPath.stringByAppendPathComponent("index.html"))
+                        })
                     }
                 })
             })
+        }
+    }
+
+    @IBAction func filterButtonTapped(sender: AnyObject) -> Void {
+        if let regex = self.filterRegexField?.stringValue {
+            if !regex.isEmpty {
+                if let outputPath = self.outputPathField?.stringValue {
+                    DependencyVisualizer.filterDependencyJSFile(regex: regex, outputPath: outputPath, completion: { (output, error) in
+                        if let _ = error {
+                            guard let window = self.window, let output = output else {
+                                // TODO: error
+                                return
+                            }
+                            let alert = NSAlert()
+                            alert.messageText = output
+                            alert.beginSheetModal(for: window, completionHandler: nil)
+                        } else {
+                            NSWorkspace.shared().openFile(outputPath.stringByAppendPathComponent("index.html"))
+                        }
+                    })
+                }
+            }
         }
     }
 
@@ -77,4 +102,5 @@ class DependencyVisualizerWindowController: NSWindowController {
     @IBOutlet private var projectNameField: NSTextField?
     @IBOutlet private var targetNameField: NSTextField?
     @IBOutlet private var outputPathField: NSTextField?
+    @IBOutlet private var filterRegexField: NSTextField?
 }
