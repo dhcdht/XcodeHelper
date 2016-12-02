@@ -57,7 +57,7 @@ links.each do |link|
     source = link['source']
     dest = link['dest']
 
-    if source.match(regex) or dest.match(regex)
+    if source.match(regex) || dest.match(regex)
         source_set << source
         result_links << link
     end
