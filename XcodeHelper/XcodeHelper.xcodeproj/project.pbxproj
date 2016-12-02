@@ -433,6 +433,7 @@
 				TargetAttributes = {
 					3CF2FA881DB63DD800ABEF83 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = TDKPBS4685;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
@@ -681,7 +682,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = TDKPBS4685;
 				INFOPLIST_FILE = XcodeHelper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xdstudio.XcodeHelper;
