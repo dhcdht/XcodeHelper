@@ -21,6 +21,7 @@
     <label><input type="range" name="charge_multiplier" min="1" max="500" value="100"/> Charge multiplier</label><br>
     <label><input type="range" name="link_strength" min="0.1" max="100" value="7"/> Link strength</label><br>
     <label><input type="checkbox" name="show_texts_near_circles"/> Show names</label><br>
+    <label><input type="checkbox" name="show_two_way_references"/> Show two-way references</label><br>
     <input id="search_input" placeholder="Type regexp to filter nodes" style="width:100%;"><br>
 </form>
 
@@ -57,6 +58,9 @@
     // you can set it to true, but this will not help to understanf what's going on
     var show_texts_near_circles = false;
     var default_max_texts_length = 100;
+
+    // Should I highlight two-way references
+    var show_two_way_references = false;
 
     var charge_multiplier = 200;
 
@@ -285,6 +289,28 @@
             force.start();
         }
 
+        if (this.name == "show_two_way_references") {
+            show_two_way_references = this.checked
+
+            pool = [];
+            svg.selectAll(".link").filter(function (link) {
+                if (pool[link.target.name+"~"+link.source.name]) {
+                    return true;
+                } else {
+                    pool[link.source.name+"~"+link.target.name] = link;
+
+                    return false;
+                }
+            }).classed('dependency', function (l) {
+                return show_two_way_references;
+            }).attr("marker-end", function (l) {
+                return show_two_way_references ? "url(#dependency)" : "url(#default)";
+            }).style("stroke-width", function(l) {
+                return show_two_way_references ? 2 : 1;
+            }).transition();
+
+            force.start();
+        }
     });
 </script>
 
