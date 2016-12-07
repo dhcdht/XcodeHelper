@@ -18,6 +18,6 @@ Xcode插件管理和破解等功能 -- Xcode plugin manager and other things
 
 ### 工程类依赖关系查看
 
-基于 https://github.com/dhcdht/objc-dependency-visualizer 
+基于 https://github.com/PaulTaykalo/objc-dependency-visualizer fork https://github.com/dhcdht/objc-dependency-visualizer 
 
 添加诸如快速查看双向依赖等功能。
