@@ -10,7 +10,8 @@ import Cocoa
 
 
 protocol PluginTableCellViewDelegate {
-    func installButtonTapped(cell: PluginTableCellView, button: FillableButton)
+    func installButtonTapped(cell: PluginTableCellView, button: FillableButton) -> Void
+    func linkButtonTapped(cell: PluginTableCellView, button: NSButton) -> Void
 }
 
 
@@ -29,6 +30,9 @@ class PluginTableCellView: NSTableCellView {
 
         self.installButton?.target = self
         self.installButton?.action = #selector(self.installButtonTapped(sender:))
+
+        self.linkButton?.target = self
+        self.linkButton?.action = #selector(self.linkButtonTapped(sender:))
     }
 
     override func draw(_ dirtyRect: NSRect) {
@@ -39,5 +43,9 @@ class PluginTableCellView: NSTableCellView {
 
     func installButtonTapped(sender: FillableButton) -> Void {
         self.delegate?.installButtonTapped(cell: self, button: sender)
+    }
+
+    func linkButtonTapped(sender: NSButton) -> Void {
+        self.delegate?.linkButtonTapped(cell: self, button: sender)
     }
 }

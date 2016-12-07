@@ -155,6 +155,19 @@ class PluginWindowController: NSWindowController, NSTableViewDataSource, NSTable
         }
     }
 
+    func linkButtonTapped(cell: PluginTableCellView, button: NSButton) {
+        if let tableView = self.tableView {
+            let row = tableView.row(for: cell)
+            if let package = self.tableView(tableView, objectValueFor: nil, row: row) as? Package {
+                if let website = package.website {
+                    if let url = URL(string: website) {
+                        NSWorkspace.shared().open(url)
+                    }
+                }
+            }
+        }
+    }
+
     // MARK: - NSSearchFieldDelegate
 
     override func controlTextDidChange(_ obj: Notification) {
