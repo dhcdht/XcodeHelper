@@ -36,13 +36,6 @@ class AutoUpdateDVTPlugInCompatibilityUUID: NSObject {
 
     func updateDVTPlugInCompatibilityUUIDFor(items:[String]) {
         let aPath = self.pluginPath()
-        let updatedArray = NSArray(contentsOfFile: appConfigure())
-        var updatedMap = [String]()
-        if let oldMap = updatedArray as? [String] {
-            for item in oldMap {
-                updatedMap.append(item)
-            }
-        }
         let currentVersionInfofile = NSMutableDictionary(contentsOfFile: "/Applications/Xcode.app/Contents/Info.plist")
         for item in items {
             let infoFile = aPath.stringByAppendPathComponent(item+infoPlist)
@@ -52,23 +45,12 @@ class AutoUpdateDVTPlugInCompatibilityUUID: NSObject {
 
                 let pluginIdentifier = dict["CFBundleIdentifier"] as! String
 
-                if let arr = updatedArray {
-                    if arr.contains(pluginIdentifier) {
-                        print("skip for :\(pluginIdentifier)")
-                        continue
-                    }
-                }
-
-
                 print("plugin: \(pluginIdentifier) currentKey:\(currentKey)")
                 var modifyOne = ids
 
                 var needUpdate = true
                 for item in modifyOne {
                     if item == currentKey {
-                        if !(updatedMap as NSArray).contains(pluginIdentifier) {
-                            updatedMap.append(pluginIdentifier)
-                        }
                         needUpdate = false
                         break
                     }
@@ -83,28 +65,15 @@ class AutoUpdateDVTPlugInCompatibilityUUID: NSObject {
                 }
             }
         }
-        (updatedMap as NSArray).write(toFile: appConfigure(), atomically: true)
     }
 
     // MARK: - Private
 
     private let pluginDir = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins"
     private let infoPlist = "/Contents/info.plist"
-    private let configureDirectory = "/Library/Application Support/XcodeHelper/"
 
     private func pluginPath() -> String {
         let pluginsHome = NSHomeDirectory().stringByAppendPathComponent(self.pluginDir)
         return pluginsHome
-    }
-
-    private func appConfigure() -> String {
-        let dir = NSHomeDirectory().stringByAppendPathComponent(configureDirectory)
-        let fm = FileManager.default
-        var isDir : ObjCBool = true
-        if !fm.fileExists(atPath: dir, isDirectory: &isDir) {
-            try? fm.createDirectory(atPath: dir, withIntermediateDirectories: false, attributes: nil)
-        }
-        let configureFile = dir.stringByAppendPathComponent("UpdatePluginConf")
-        return configureFile
     }
 }
